@@ -1,0 +1,13 @@
+h3 {
+    display: inline-block;
+}
+ul {
+    padding: 0;
+    list-style: none;
+}
+.working {
+    margin: 0 5px;
+}
+.dalet {
+    margin: 0 5px;
+}
