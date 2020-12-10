@@ -3,17 +3,16 @@
     const add = document.getElementById('add');
     const ul = document.getElementById('todolist');
     const text = document.getElementById('text');
-    const deletebtn = document.createElement('button');
-    const workingbtn = document.createElement('button');
 
     /*todosにshowtodosの内容をいれる*/
     add.addEventListener('click',() => {
         const input = text.value;
-        text.value = '';
+        input.value = '';
         if(input){
           todos.push(input);
           showTodos();
         }
+        
     });
     /*todos表示する*/
     const showTodos = () => {
@@ -22,31 +21,31 @@
         }
         todos.forEach((todo,index)=>{
             const li = document.createElement('li');
+            const deletebtn = document.createElement('button');
+            const workingbtn = document.createElement('button');
+            const task = {
+                content:'タスク',
+                status:'作業中'
+              }
             li.textContent = (`${index}　${todo}`);
-            workingaction();
-            daleteaction();
-            li.appendChild(workingbtn)
+            workingaction(workingbtn);
+            daleteaction(deletebtn);
+            li.appendChild(workingbtn);
             li.appendChild(deletebtn);
             ul.appendChild(li);
             deletebtn.addEventListener('click',() => {
             dalettodo(index);
+            todos.push(task);
             });
         });
     }
-    /*タスクの状態管理*/ 
-    task = {
-        const:'タスク',
-        status:'作業中'
-    }
-    tasks.push(task);
 
-    const daleteaction = function(){
+    const daleteaction = function(deletebtn){
         deletebtn.textContent = ('削除');
         deletebtn.className = ('delete')
     };
-    const workingaction = function(){
+    const workingaction = function(workingbtn){
         workingbtn.textContent = ('作業中');
-            workingbtn.className = 'working'
+        workingbtn.className = 'working'
     }
 }
-    
